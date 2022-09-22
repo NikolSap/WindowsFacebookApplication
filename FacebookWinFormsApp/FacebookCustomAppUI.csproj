@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.87.1.13\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.87.1.13\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.87.1.13\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.87.1.13\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{905D5BF1-A7E4-4440-85E8-84772F5312D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BasicFacebookFeatures</RootNamespace>
+    <AssemblyName>BasicFacebookFeatures</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>obj\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>default</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>default</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp, Version=87.1.132.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.87.1.132\lib\net452\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=87.1.132.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.87.1.132\lib\net452\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=87.1.132.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.WinForms.87.1.132\lib\net452\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\..\01_FB01_BasicFacebookFeatures.V8.0.2.2\FBApi\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FbGraphApiWrapper">
+      <HintPath>..\..\01_FB01_BasicFacebookFeatures.V8.0.2.2\FBApi\FbGraphApiWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbumsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlbumsForm.Designer.cs">
+      <DependentUpon>AlbumsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="CommentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommentsForm.Designer.cs">
+      <DependentUpon>CommentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eFeatureType.cs" />
+    <Compile Include="EventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsForm.Designer.cs">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FavoriteTeamsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavoriteTeamsForm.Designer.cs">
+      <DependentUpon>FavoriteTeamsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseClassOfAllFeaturesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseClassOfAllFeaturesForm.Designer.cs">
+      <DependentUpon>BaseClassOfAllFeaturesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeaturesForm.Designer.cs">
+      <DependentUpon>FeaturesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFeaturesFactory.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameFormBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupsForm.Designer.cs">
+      <DependentUpon>GroupsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LikedPagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LikedPagesForm.Designer.cs">
+      <DependentUpon>LikedPagesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LikesResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LikesResultsForm.Designer.cs">
+      <DependentUpon>LikesResultsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhotosForm.Designer.cs">
+      <DependentUpon>PhotosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostsForm.Designer.cs">
+      <DependentUpon>PostsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomAlbumDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandomAlbumDataForm.Designer.cs">
+      <DependentUpon>RandomAlbumDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartingGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartingGameForm.Designer.cs">
+      <DependentUpon>StartingGameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WhoLikesMeTheMostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WhoLikesMeTheMostForm.Designer.cs">
+      <DependentUpon>WhoLikesMeTheMostForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlbumsForm.resx">
+      <DependentUpon>AlbumsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommentsForm.resx">
+      <DependentUpon>CommentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsForm.resx">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoriteTeamsForm.resx">
+      <DependentUpon>FavoriteTeamsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeaturesForm.resx">
+      <DependentUpon>FeaturesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameFormBoard.resx">
+      <DependentUpon>GameFormBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupsForm.resx">
+      <DependentUpon>GroupsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LikedPagesForm.resx">
+      <DependentUpon>LikedPagesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LikesResultsForm.resx">
+      <DependentUpon>LikesResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhotosForm.resx">
+      <DependentUpon>PhotosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostsForm.resx">
+      <DependentUpon>PostsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RandomAlbumDataForm.resx">
+      <DependentUpon>RandomAlbumDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartingGameForm.resx">
+      <DependentUpon>StartingGameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WhoLikesMeTheMostForm.resx">
+      <DependentUpon>WhoLikesMeTheMostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Album.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Page.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date+events+twelve+icon-1320166594228861303.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\410-4108064_transparent-groups-of-people-clipart-team-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Like-icon-on-transparent-PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-photo-albums-computer-icons-photography-5af98f1822c298.6338660815263045361424.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\306-3063453_computer-icons-portable-network-graphics-aspire-2be-support-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\הורדה.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15075574_team-icon-leadership-transparent-team-building-png-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Like-icon-on-transparent-PNG %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1111Like-icon-design-on-transparent-PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fbl-01-1536x1152.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17-171182_like-facebook-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\211-2110147_best-obrzok-pre-henzo-gamma-slipin-album-x-photos-color-henzo-gamma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31-316087_2016-2018-by-all-rights-reserved-add-event-to-your-calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15-153145_to-log-onto-the-ez-net-web-portal-please-use-your-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61cc9def6b38e1eafbea081f7827019d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\post-icon-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-livechat-online-chat-desktop-others-miscellaneous-angle-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-facebook-messenger-online-chat-emoticon-computer-icons-chat-blue-text-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Album.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook logo.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Generic profile photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-facebook-messenger-online-chat-emoticon-computer-icons-chat-blue-text-logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tic Tac Toe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Who Like Me The Most.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_rC6mJv4pXbR6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_vd3kHFJo7qIZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\luxury-background-with-silver-border-and-red-blue-vector-32361066.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_KD8YrOCn3np3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_KD8YrOCn3np31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NicePng_facebook-logo-png_4820.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-sticky-note-png-sticky-notes-png-186952.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FacebookCustomAppEngine\FacebookCustomAppEngine.csproj">
+      <Project>{5526b8bc-09fb-4a10-a464-6c925d5e18ae}</Project>
+      <Name>FacebookCustomAppEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TicTacToe\FourInRowLogic\FourInRowLogic.csproj">
+      <Project>{c7bf6a62-000d-4e47-af71-2aca144a2b82}</Project>
+      <Name>FourInRowLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumb2-polished-metal-texture-polished-metal-background-steel-texture-metal-texture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rm21-mixtexture-aew-35_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kissclipart-arrow-icon-double-arrow-icon-doublechevronleft-ico-809e25ed493e73dd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_rC6mJv4pXbR6 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_vd3kHFJo7qIZ %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer-5509452_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.png" />
+    <None Include="Resources\48639.png" />
+    <None Include="Resources\images1.png" />
+    <None Include="Resources\images %281%29.png" />
+    <Content Include="Resources\istockphoto-862739386-1024x1024.jpg" />
+    <None Include="Resources\istockphoto-862739386-1024x10241.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.87.1.13\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.87.1.13\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.87.1.13\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.87.1.13\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.targets'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.87.1.132\build\CefSharp.Common.targets')" />
+</Project>
